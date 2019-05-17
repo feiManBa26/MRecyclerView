@@ -6,11 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * File: BaseOnScrollListener.java
- * Author: ejiang
- * Version: V100R001C01
+ * Author: mr.zang
  * Create: 2017-08-25 9:48
  */
-
 public abstract class BaseOnScrollListener extends RecyclerView.OnScrollListener {
 
     private boolean loading = true;

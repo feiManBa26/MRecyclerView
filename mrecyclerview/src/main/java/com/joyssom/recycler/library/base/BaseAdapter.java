@@ -8,7 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public abstract class BaseAdapter<D extends Object, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+/**
+ * author mr.zang
+ * BaseAdapter
+ * @param <D>
+ * @param <VH>
+ */
+public abstract class BaseAdapter<D, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
     private Context mContext;
     private ArrayList<D> mds;
 
@@ -36,8 +42,18 @@ public abstract class BaseAdapter<D extends Object, VH extends RecyclerView.View
         return onCreateChildViewHolder(parent, viewType);
     }
 
+    /**
+     * 创建ViewHolder
+     * @param parent
+     * @param viewType
+     * @return
+     */
     protected abstract VH onCreateChildViewHolder(ViewGroup parent, int viewType);
 
+    /**
+     *
+     * @param ds
+     */
     public void initMDatas(ArrayList<D> ds) {
         if (ds == null) return;
         if (ds.size() == 0) return;
@@ -46,6 +62,10 @@ public abstract class BaseAdapter<D extends Object, VH extends RecyclerView.View
         notifyDataSetChanged();
     }
 
+    /**
+     *
+     * @param ds
+     */
     public void initMDatasToOne(ArrayList<D> ds) {
         if (ds == null) return;
         if (ds.size() == 0) return;
@@ -54,36 +74,61 @@ public abstract class BaseAdapter<D extends Object, VH extends RecyclerView.View
         notifyDataSetChanged();
     }
 
+    /**
+     *
+     * @param d
+     */
     public void initMData(D d) {
         if (d == null) return;
         mds.add(d);
         notifyDataSetChanged();
     }
 
+    /**
+     * 初始化 添加
+     * index 0 列表最前
+     * @param d
+     */
     public void initMDataToOne(D d) {
         if (d == null) return;
         mds.add(0, d);
         notifyDataSetChanged();
     }
 
+    /**
+     * 添加 items
+     * @param ds
+     */
     public void addDataModel(ArrayList<D> ds) {
         if (ds == null || ds.size() == 0) return;
         mds.addAll(ds);
         notifyDataSetChanged();
     }
 
+    /**
+     * 添加 items index 0
+     * 插入列表最前
+     * @param ds
+     */
     public void addStartDataModel(ArrayList<D> ds) {
         if (ds == null || ds.size() == 0) return;
         mds.addAll(0, ds);
         notifyDataSetChanged();
     }
 
+    /**
+     * 添加Item
+     * @param d
+     */
     public void addDataModel(D d) {
         if (d == null) return;
         mds.add(d);
         notifyDataSetChanged();
     }
 
+    /**
+     * 删除所有Item
+     */
     public void deleteMDatas() {
         mds.clear();
         notifyDataSetChanged();
@@ -100,5 +145,11 @@ public abstract class BaseAdapter<D extends Object, VH extends RecyclerView.View
         onBindDataViewHolder(holder, position, d);
     }
 
+    /**
+     * 绑定数据
+     * @param holder
+     * @param position
+     * @param d
+     */
     protected abstract void onBindDataViewHolder(VH holder, int position, D d);
 }

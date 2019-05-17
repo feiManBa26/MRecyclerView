@@ -6,7 +6,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public abstract class BasePopAdapter<D extends Object, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+/**
+ * author mr.zang
+ * @param <D>
+ * @param <VH>
+ */
+public abstract class BasePopAdapter<D, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH> {
+
     private Context mContext;
     private D[] mds;
 

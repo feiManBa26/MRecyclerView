@@ -25,3 +25,9 @@ proguard/
 
 # Log Files
 *.log
+/mrecyclerview/mrecyclerview.iml
+.project
+.settings/
+app/libs/
+mrecyclerview/libs/
+mrecyclerview/src/main/res/drawable/

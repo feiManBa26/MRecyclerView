@@ -30,5 +30,5 @@ dependencies {
     testImplementation dep.junit
     androidTestImplementation dep.x_android_test_runner
     androidTestImplementation dep.x_android_test_espresso
-    implementation project(':recyclerviewlibrary')
+    implementation project(':mrecyclerview')
 }

@@ -14,7 +14,7 @@ import java.lang.annotation.RetentionPolicy;
  * Create: 2017-05-13 14:49
  */
 
-public class RecycleViewItemData<T extends Object, T1 extends Object> implements Serializable {
+public class RecycleViewItemData<T> implements Serializable {
 
     public static final int TYPE_ZERO = 0;
     public static final int TYPE_ONE = 1;
@@ -34,6 +34,12 @@ public class RecycleViewItemData<T extends Object, T1 extends Object> implements
     public @interface recyclerViewItemType {
     }
 
+    @recyclerViewItemType
+    private int itemType;
+    //是否选中
+    private boolean isSel;
+    private T t;
+
     public RecycleViewItemData(@recyclerViewItemType int itemType) {
         this.itemType = itemType;
     }
@@ -41,70 +47,6 @@ public class RecycleViewItemData<T extends Object, T1 extends Object> implements
     public RecycleViewItemData(T t, @recyclerViewItemType int itemType) {
         this.t = t;
         this.itemType = itemType;
-    }
-
-    public RecycleViewItemData(T t, T1 t1, int itemType) {
-        this.t = t;
-        this.t1 = t1;
-        this.itemType = itemType;
-    }
-
-    public boolean isVisibieOne() {
-        return isVisibieOne;
-    }
-
-    public void setVisibieOne(boolean visibieOne) {
-        isVisibieOne = visibieOne;
-    }
-
-    public boolean isVisibieTwo() {
-        return isVisibieTwo;
-    }
-
-    public void setVisibieTwo(boolean visibieTwo) {
-        isVisibieTwo = visibieTwo;
-    }
-
-    private T t;
-    private T1 t1;
-
-    public T1 getT1() {
-        return t1;
-    }
-
-    public void setT1(T1 t1) {
-        this.t1 = t1;
-    }
-
-    private boolean isVisibieOne = true;
-    private boolean isVisibieTwo = false;
-
-    public RecycleViewItemData(boolean isVisibieOne, boolean isVisibieTwo, int itemType) {
-        this.isVisibieOne = isVisibieOne;
-        this.isVisibieTwo = isVisibieTwo;
-        this.itemType = itemType;
-    }
-
-    @recyclerViewItemType
-    private int itemType;
-
-    public RecycleViewItemData(@recyclerViewItemType int itemType, @recyclerViewItemType int fooderType) {
-        this.itemType = itemType;
-        this.fooderType = fooderType;
-    }
-
-    //是否选中
-    private boolean isSel;
-
-    @recyclerViewItemType
-    private int fooderType;
-
-    public int getFooderType() {
-        return fooderType;
-    }
-
-    public void setFooderType(int fooderType) {
-        this.fooderType = fooderType;
     }
 
     public boolean isSel() {
@@ -119,15 +61,7 @@ public class RecycleViewItemData<T extends Object, T1 extends Object> implements
         return t;
     }
 
-    public void setT(T t) {
-        this.t = t;
-    }
-
     public int getItemType() {
         return itemType;
-    }
-
-    public void setItemType(int itemType) {
-        this.itemType = itemType;
     }
 }
