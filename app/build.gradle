@@ -1,13 +1,18 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+
+    def app = rootProject.ext.application
+    def build_version = rootProject.ext.build_versions
+
+    compileSdkVersion build_version.compileSdkVersion
+
     defaultConfig {
-        applicationId "com.joyssom.widget"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        applicationId app.id
+        minSdkVersion build_version.minSdkVersion
+        targetSdkVersion  build_version.targetSdkVersion
+        versionCode build_version.versionCode
+        versionName build_version.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,9 +24,11 @@ android {
 }
 
 dependencies {
+    def dep = rootProject.ext.dep
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation dep.x_appcompat
+    testImplementation dep.junit
+    androidTestImplementation dep.x_android_test_runner
+    androidTestImplementation dep.x_android_test_espresso
+    implementation project(':recyclerviewlibrary')
 }

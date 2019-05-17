@@ -1,0 +1,41 @@
+ext.dep = [:]
+ext.build_versions = [:]
+ext.application = [:]
+
+def dep = [:]
+
+def version = [:]
+
+version.x_appcompat = "1.0.2"
+version.x_recycler_view = "1.0.0"
+version.junit = "4.12"
+version.x_android_test_runner = "1.1.1"
+version.x_android_test_espresso = "3.1.1"
+
+dep.x_appcompat = "androidx.appcompat:appcompat:$version.x_appcompat"
+dep.x_recycler_view = "androidx.recyclerview:recyclerview:$version.x_recycler_view"
+dep.junit = "junit:junit:$version.junit"
+dep.x_android_test_runner = "androidx.test:runner:$version.x_android_test_runner"
+dep.x_android_test_espresso = "androidx.test.espresso:espresso-core:3.1.1"
+
+dep.abortOnLintError = false
+dep.checkLintRelease = false
+dep.checkReleaseBuilds = false
+dep.useJack = false
+dep.abortOnLintError = false
+dep.abortOnError = false
+
+ext.dep = dep
+
+def build_versions = [:]
+build_versions.minSdkVersion = 21
+build_versions.targetSdkVersion = 28
+build_versions.compileSdkVersion = 28
+build_versions.versionCode = 1
+build_versions.versionName = "1.0.1"
+build_versions.javaVersion = JavaVersion.VERSION_1_8
+ext.build_versions = build_versions
+
+def application = [:]
+application.id = "com.joyssom.widget"
+ext.application = application
